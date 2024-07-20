@@ -21,7 +21,6 @@ mimetypes.add_type("text/css", ".css", True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print('👿👿😈👹👿👺👺👹 BASE DIRECTORY: SHOULD BE /dotapro/server where manage.py is ===>', BASE_DIR)
 
 # load_dotenv(os.path.join(BASE_DIR, '.env'))
 load_dotenv(BASE_DIR / '.env')
@@ -71,6 +70,10 @@ INSTALLED_APPS = [
 
 
     'api.test_routes.apps.TestRoutesConfig',
+
+    # Celery
+    'django_celery_results',
+    'django_celery_beat',
 ]
 
 
@@ -220,8 +223,6 @@ if DEBUG:
         }
     }
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    print('🥶🥶🥶🥶🥶🥶 STATIC_ROOT (BASE_DIR + staticfiles) ===>', STATIC_ROOT)
-    print('🥶🥶🥶🥶🥶🥶 DATABASES (BASE_DIR + db.sqlite3) ===>', DATABASES)
     # Run this command to create the staticfiles/ directory
     # python manage.py collectstatic
 
@@ -239,7 +240,6 @@ if not DEBUG:
         },
     }
     print('😲🤑😲😲☹ DEBUG IS OFF =>>> SETTING STATIC_ROOT AND STORAGES BELOW', '\n', STATIC_ROOT, '\n', STORAGES)
-    print('😲🤑😲😲☹ DEBUG IS OFF =>>> SETTING STATIC_ROOT AND STORAGES ABOVE')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -281,10 +281,25 @@ STATICFILES_DIRS = [
     BASE_DIR / '..' / 'client/dist'
 ]
 
-print('STATICFILES_DIRS ===> ', STATICFILES_DIRS)
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Celery Settings
+CELERY_BROKER_URL = 'redis://red-cqcv9tpu0jms73e5d09g:6379'
+CELERY_RESULT_BACKEND = 'redis://red-cqcv9tpu0jms73e5d09g:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_CACHE_BACKEND = 'default'
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://red-cqcv9tpu0jms73e5d09g:6379",
+    }
+}

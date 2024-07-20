@@ -22,5 +22,5 @@ def generate_response(request):
     
     chat.send_message("If I give you some gameplay data, could you compare it to top players and give me advice for improvement?")
     print("🤬🤬🤬🤬🤬 RESPONSE", chat.last.text)
-    return Response(chat.last.text)
+    return Response({"cache": top_players_data, "response": chat.last.text})
     
