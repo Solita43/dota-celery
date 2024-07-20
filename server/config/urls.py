@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from django.views.generic import TemplateView
 from api.steam_open_id.views import steam_login, get_user_data, logout_view, authenticate
+from api.gemini_ai.views import generate_response
 
 urlpatterns = [
     # This would be localhost:8000/admin/
@@ -30,6 +31,7 @@ urlpatterns = [
     path('get_user_data/', get_user_data, name='get_user_data'),
     path('logout/', logout_view, name='logout'),
     path('authenticate/', authenticate, name='authenticate'),
+    path('generate_response/', generate_response, name='generate_response'),
 
     # PSA URLs
     # url(r'', include('social_django.urls', namespace='social'))

@@ -68,6 +68,7 @@ function App() {
         <button onClick={test}>TEST ROUTE: CLICK & CHECK CONSOLE</button>
         <button onClick={() => (window.location.href = 'http://localhost:8000/steam_login/')}>Login with Steam</button>
         <button onClick={() => (window.location.href = 'http://localhost:8000/logout/')}>Logout</button>
+        <button onClick={() => (window.location.href = 'http://localhost:8000/generate_response/')}>Get User Data</button>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
