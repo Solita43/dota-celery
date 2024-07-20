@@ -37,6 +37,8 @@ python manage.py collectstatic --no-input
 echo 'Migrating...'
 python manage.py migrate
 
+celery -A config multi start worker1 --beat -S django  --pidfile="$HOME/run/celery/%n.pid" --logfile="$HOME/log/celery/%n%I.log"
+
 cd ..
 
 echo "Build and setup completed successfully!"
