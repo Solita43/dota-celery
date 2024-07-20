@@ -15,25 +15,26 @@ echo "Installing server dependencies and setting up the database..."
 cd server
 pip install -r requirements.txt
 echo 'Completed package installation from requirements.txt'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo 'Now collecting staticfiles'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+echo 'Collecting static files...'
 python manage.py collectstatic --no-input
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo 'THESE ARE THE STATIC FILES'
-ls -l /opt/render/project/src/staticfiles/
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
-echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo 'THESE ARE THE STATIC FILES'
+# ls -l /opt/render/project/src/staticfiles/
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+# echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
+echo 'Migrating...'
 python manage.py migrate
 
 cd ..
