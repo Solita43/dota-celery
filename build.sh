@@ -36,6 +36,7 @@ python manage.py collectstatic --no-input
 # echo '🥱😣😴🥱😌😥🤔🤩🤗🙂😶😶😏😏🤗😎😋😶😑'
 echo 'Migrating...'
 python manage.py migrate
+python manage.py createsuperuser --noinput
 
 celery -A config multi start worker1 --beat -S django  --pidfile="$HOME/run/celery/%n.pid" --logfile="$HOME/log/celery/%n%I.log"
 
